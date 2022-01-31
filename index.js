@@ -9,6 +9,7 @@ app.use(express.json());
 app.get("/user/:id", async (req, res) => {
   try {
     const { id } = req.params;
+    console.log("Here is merge conflict");
     const user = await User.query().findById(id).withGraphFetched("channel");
     res.json(user);
   } catch (err) {
